@@ -91,8 +91,8 @@ window.SITE = {
       poster: "img/flybycode_poster.jpg",
       featured: true,
       links: [
-        { label: "Website", url: "https://fbycode.github.io/flybycode/" },
-        { label: "Video", url: "video/real_water_bottle_delivery.mp4" },
+        { label: "Website", url: "https://fly-by-code.github.io/" },
+        { label: "Video", url: "video/real_cabinet_film_v12_labels_20261008.mp4" },
       ],
     },
   ],
