@@ -99,7 +99,7 @@ window.SITE = {
 
   // ---------------------------------------------------------------
   // 프로젝트 / 경력. 비워두면 섹션이 사라집니다.
-  //  media      : 썸네일 (3:2로 잘려 보이고, 클릭하면 원본 전체가 보임)
+  //  media      : 썸네일 (16:9로 잘려 보이고, 클릭하면 원본 전체가 보임)
   //  mediaFocus : 잘릴 때 보여줄 위치 "가로% 세로%" (기본은 가운데)
   // ---------------------------------------------------------------
   projectsTitle: "Projects &amp; Experience",
@@ -109,7 +109,7 @@ window.SITE = {
       period: "Oct. 2024 – Apr. 2025 &nbsp;·&nbsp; Seoul, Korea / Tucson, Arizona",
       description: "Developed an automated fixed-wing aircraft sizing and optimization tool to maximize the competition score. Integrated OpenVSP, VSPAERO, and ANSYS Fluent through Python APIs to automate geometry generation and aerodynamic coefficient calculation, using CFD results to correct for VSPAERO's inviscid-flow limitations. Built a mission simulation based on 6-DOF fixed-wing equations of motion and a grid-search optimizer over geometric parameters and mission throttle settings.",
       media: "img/AIAADBF.jpeg",
-      mediaFocus: "50% 60%",
+      mediaFocus: "50% 55%",
       links: [{ label: "AIAA DBF", url: "https://www.aiaa.org/dbf" }],
     },
     {

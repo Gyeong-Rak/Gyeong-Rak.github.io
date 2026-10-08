@@ -141,7 +141,7 @@ section.block h2 {
 #news-toggle:hover,
 .more-toggle:hover { color: var(--link-hover); text-decoration: underline; }
 
-.more-toggle { display: block; margin: 0 0 4px; }
+.more-toggle { display: block; margin: 0; }
 .more-toggle[hidden] { display: none; }
 
 /* 잘린 설명의 마지막 줄을 흐리게 */
@@ -155,7 +155,6 @@ section.block h2 {
 .item {
     display: flex;
     gap: 20px;
-    align-items: flex-start;
     padding: 16px 0;
     border-bottom: 1px solid var(--rule-soft);
 }
@@ -179,7 +178,7 @@ section.block h2 {
 .item-thumb img { cursor: zoom-in; }
 
 .item-thumb.crop img,
-.item-thumb.crop video { aspect-ratio: 3 / 2; object-fit: cover; }
+.item-thumb.crop video { aspect-ratio: 16 / 9; object-fit: cover; }
 
 .item-text { flex: 1 1 auto; min-width: 0; }
 
@@ -190,17 +189,38 @@ section.block h2 {
     margin: -10px -12px;
 }
 
+/* 썸네일과 글 상자를 같은 높이로 맞추고, 링크는 아랫단에 붙임 */
+.item { align-items: stretch; }
+
+.item-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-text > .item-links { margin-top: auto; margin-bottom: 0; padding-top: 4px; }
+.item-text > .more-toggle { align-self: flex-start; }
+
+/* 논문: 제목·저자는 위, 학회·링크는 아래. 글이 길면 썸네일을 글 높이에 맞춰 늘림(가장자리만 잘림) */
+.pub-item .item-text { justify-content: space-between; gap: 8px; }
+
+.pub-item .item-thumb img,
+.pub-item .item-thumb video { height: 100%; object-fit: cover; object-position: left center; }
+
+.pub-item .item-text.featured { margin: 0; }
+.pub-item .item-text > div > p:last-child { margin-bottom: 0; }
+
 .item-text p { margin: 0 0 4px; }
 .item-title { font-weight: 700; margin-bottom: 6px !important; }
 .item-note { font-size: 0.85em; color: var(--text-muted); }
 .item-award { color: var(--award); font-weight: 700; }
 .item-period { color: var(--text-muted); font-size: 0.92em; }
-.item-links { margin-top: 4px !important; }
 .self { font-weight: 700; text-decoration: underline; }
 
 @media (max-width: 560px) {
     .item { flex-direction: column; }
     .item-thumb { flex-basis: auto; max-width: 100%; width: 100%; }
+    .pub-item .item-thumb img,
+    .pub-item .item-thumb video { height: auto; }
     .item-text.featured { margin: 0; }
 }
 

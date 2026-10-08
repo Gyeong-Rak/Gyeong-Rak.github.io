@@ -33,7 +33,7 @@
         }).join(', ');
     }
 
-    // crop: 썸네일을 3:2로 잘라서 표시, focus: 잘릴 때 보일 위치 (CSS object-position, 예: "50% 70%")
+    // crop: 썸네일을 16:9로 잘라서 표시, focus: 잘릴 때 보일 위치 (CSS object-position, 예: "50% 70%")
     // poster: 영상이 로드되기 전에 보여줄 이미지
     function media(src, alt, crop, focus, poster) {
         if (!src) return '';
@@ -79,15 +79,16 @@
     if (S.publications && S.publications.length) {
         $('pub-note').innerHTML = S.publicationNote || '';
         $('pub-list').innerHTML = S.publications.map(function (p) {
-            return '<div class="item">' + media(p.media, p.title, false, null, p.poster) +
+            // 제목·저자는 위, 학회·링크는 썸네일 아랫단에 맞춤
+            return '<div class="item pub-item">' + media(p.media, p.title, false, null, p.poster) +
                 '<div class="item-text' + (p.featured ? ' featured' : '') + '">' +
-                '<p class="item-title">' + p.title + '</p>' +
+                '<div><p class="item-title">' + p.title + '</p>' +
                 '<p>' + authorList(p.authors) + '</p>' +
-                (p.note ? '<p class="item-note">' + p.note + '</p>' : '') +
-                '<p><i>' + p.venue + '</i>' + (p.year ? ', ' + p.year : '') + '</p>' +
+                (p.note ? '<p class="item-note">' + p.note + '</p>' : '') + '</div>' +
+                '<div class="item-bottom"><p><i>' + p.venue + '</i>' + (p.year ? ', ' + p.year : '') + '</p>' +
                 (p.award ? '<p class="item-award">' + p.award + '</p>' : '') +
                 (p.links && p.links.length ? '<p class="item-links">' + linkList(p.links) + '</p>' : '') +
-                '</div></div>';
+                '</div></div></div>';
         }).join('');
     } else {
         $('publications').remove();
@@ -147,13 +148,14 @@
 
             // 모바일처럼 사진이 글 위에 쌓이는 배치에서는 자르지 않음
             var sideBySide = thumb.getBoundingClientRect().top === text.getBoundingClientRect().top;
-            var thumbH = thumb.getBoundingClientRect().height;
+            // 썸네일 칸은 글 높이만큼 늘어나므로, 칸이 아니라 사진 자체의 높이를 기준으로 삼음
+            var thumbH = thumb.firstElementChild.getBoundingClientRect().height;
             if (!sideBySide || text.getBoundingClientRect().height <= thumbH) return;
 
             btn.hidden = false;
             var lineH = parseFloat(getComputedStyle(desc).lineHeight);
             var otherH = text.getBoundingClientRect().height - desc.getBoundingClientRect().height;
-            var lines = Math.max(2, Math.floor((thumbH - otherH) / lineH));
+            var lines = Math.max(1, Math.floor((thumbH - otherH) / lineH));
             desc.style.maxHeight = lines * lineH + 'px';
             desc.classList.add('clamped');
         }
