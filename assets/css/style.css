@@ -274,6 +274,61 @@ section.block h2 {
 :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
+/* ---------- Heart (giscus) ---------- */
+.heart {
+    position: fixed;
+    top: 62px;          /* 테마 버튼(14px + 38px) 바로 아래 */
+    right: 14px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.heart-count {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    min-width: 1ch;
+    text-align: right;
+}
+
+.heart-button {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.heart-button:hover { color: #e0245e; border-color: #e0245e; }
+.heart-button svg { width: 18px; height: 18px; }
+.heart.reacted .heart-button { color: #e0245e; }
+.heart.reacted .heart-button svg { fill: currentColor; }
+
+/* 팝업: giscus가 미리 로드되어 개수를 보내도록 display:none 대신 visibility로 숨김 */
+.heart-panel {
+    position: absolute;
+    top: 46px;
+    right: 0;
+    width: 280px;
+    padding: 10px 12px 4px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--bg);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.heart.open .heart-panel { visibility: visible; opacity: 1; }
+.heart-panel-note { margin: 0 0 4px; font-size: 0.85em; color: var(--text-muted); }
+
 /* ---------- Image modal ---------- */
 .modal {
     display: none;

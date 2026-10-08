@@ -208,6 +208,72 @@
         if (!saved) root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
     });
 
+    // ---------- Heart (giscus) ----------
+    // 하트 반응은 이 저장소의 GitHub Discussion("homepage")에 저장됨. 누른 사람 목록은 Discussions 탭에서 확인 가능
+    var GISCUS = 'https://giscus.app';
+    var heart = $('heart');
+    var heartBtn = $('heart-button');
+    function giscusTheme() {
+        var base = location.origin.indexOf('http') === 0 ? location.origin : 'https://gyeong-rak.github.io';
+        return base + '/assets/css/giscus-' + (root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light') + '.css';
+    }
+    function giscusFrame() { return document.querySelector('iframe.giscus-frame'); }
+    function setHeartOpen(open) {
+        heart.classList.toggle('open', open);
+        heartBtn.setAttribute('aria-expanded', open);
+    }
+
+    // GitHub 로그인 후 돌아온 경우(주소에 giscus 세션이 붙어 옴) 팝업을 바로 열어 둠
+    var returningFromLogin = /[?&]giscus=/.test(location.search);
+
+    var gs = document.createElement('script');
+    gs.src = GISCUS + '/client.js';
+    gs.async = true;
+    gs.crossOrigin = 'anonymous';
+    var cfg = {
+        repo: 'Gyeong-Rak/Gyeong-Rak.github.io',
+        repoId: 'R_kgDOVA063g',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOVA063s4DHVns',
+        mapping: 'specific',
+        term: 'homepage',
+        strict: '0',
+        reactionsEnabled: '1',
+        emitMetadata: '1',
+        inputPosition: 'bottom',
+        lang: 'en',
+        theme: giscusTheme(),
+    };
+    Object.keys(cfg).forEach(function (k) {
+        gs.setAttribute('data-' + k.replace(/[A-Z]/g, function (c) { return '-' + c.toLowerCase(); }), cfg[k]);
+    });
+    document.body.appendChild(gs);
+    if (returningFromLogin) setHeartOpen(true);
+
+    // giscus가 보내는 정보에서 하트 개수와 내가 눌렀는지를 읽음 (글이 아직 없으면 정보가 오지 않음 → 0)
+    $('heart-count').textContent = '0';
+    window.addEventListener('message', function (e) {
+        if (e.origin !== GISCUS || !e.data || !e.data.giscus) return;
+        var d = e.data.giscus.discussion;
+        if (!d || !d.reactions || !d.reactions.HEART) return;
+        $('heart-count').textContent = d.reactions.HEART.count;
+        heart.classList.toggle('reacted', !!d.reactions.HEART.viewerHasReacted);
+    });
+
+    heartBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setHeartOpen(!heart.classList.contains('open'));
+    });
+    document.addEventListener('click', function (e) {
+        if (heart.classList.contains('open') && !heart.contains(e.target)) setHeartOpen(false);
+    });
+
+    // 테마를 바꾸면 giscus 팝업도 같은 테마로
+    new MutationObserver(function () {
+        var f = giscusFrame();
+        if (f) f.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme() } } }, GISCUS);
+    }).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+
     // ---------- Image modal ----------
     var modal = $('modal');
     var modalImg = $('modal-img');

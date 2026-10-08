@@ -66,6 +66,20 @@
         </svg>
     </button>
 
+    <!-- 하트 버튼: 개수는 giscus가 보내주는 정보로 표시, 누르면 giscus 팝업에서 하트를 누름 -->
+    <div class="heart" id="heart">
+        <span class="heart-count" id="heart-count" aria-live="polite"></span>
+        <button type="button" class="heart-button" id="heart-button" aria-label="Leave a heart" title="Leave a heart" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+        </button>
+        <div class="heart-panel" id="heart-panel" role="dialog" aria-label="Leave a heart">
+            <p class="heart-panel-note">Leave a ❤️ with your GitHub account</p>
+            <div class="giscus"></div>
+        </div>
+    </div>
+
     <div id="modal" class="modal" aria-hidden="true">
         <span class="modal-close" aria-label="Close">&times;</span>
         <img class="modal-content" id="modal-img" alt="">
