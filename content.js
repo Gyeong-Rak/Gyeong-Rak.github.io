@@ -15,7 +15,7 @@ window.SITE = {
     photo: "img/profile2-web.jpg",
     position: [
       "M.S. Student, Integrated M.S./Ph.D. Program",
-      'Interdisciplinary Program in Artificial Intelligence, Seoul National University',
+      'Interdisciplinary Program in Artificial Intelligence, <a href="https://en.snu.ac.kr/">Seoul National University</a>',
       '<a href="https://larr.snu.ac.kr/">Lab for Autonomous Robotics Research (LARR)</a>',
       'Contact: <a href="mailto:rudfkr5978@snu.ac.kr">rudfkr5978@snu.ac.kr</a>',
     ],
@@ -33,7 +33,7 @@ window.SITE = {
   // 자기소개 (문단 단위 배열)
   // ---------------------------------------------------------------
   bio: [
-    'I am an M.S. student in the integrated M.S./Ph.D. program of the Interdisciplinary Program in Artificial Intelligence at Seoul National University, where I work in the <a href="https://larr.snu.ac.kr/">Lab for Autonomous Robotics Research (LARR)</a> under the supervision of Prof. <a href="https://larr.snu.ac.kr/">H. Jin Kim</a>. I received the B.S. degree in Aerospace Engineering from Seoul National University in 2026, and spent Autumn 2025 as an exchange student at the <a href="https://www.washington.edu/">University of Washington</a>.',
+    'I am an M.S. student in the integrated M.S./Ph.D. program of the Interdisciplinary Program in Artificial Intelligence at <a href="https://en.snu.ac.kr/">Seoul National University</a>, where I work in the <a href="https://larr.snu.ac.kr/">Lab for Autonomous Robotics Research (LARR)</a> under the supervision of Prof. <a href="https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&amp;hl=en">H. Jin Kim</a>. I received the B.S. degree in Aerospace Engineering from Seoul National University in 2026, and spent Autumn 2025 as an exchange student at the <a href="https://www.washington.edu/">University of Washington</a>.',
     "Before graduate school, I served in the Republic of Korea Army as a CH-47D Chinook crew member, logging over 100 flight hours. As an undergraduate, I was a member of BullNaBi, the drone research club at SNU, and competed in the AIAA Design/Build/Fly competition.",
     "My research interests lie in <b>reinforcement learning</b> and <b>computer vision</b> for robotics, with a particular interest in <b>humanoid robots</b>.",
   ],
@@ -43,8 +43,8 @@ window.SITE = {
   // ---------------------------------------------------------------
   newsVisible: 5,
   news: [
-    { date: "Mar. 2026", text: 'Started the integrated M.S./Ph.D. program in the Interdisciplinary Program in Artificial Intelligence at Seoul National University and joined <a href="https://larr.snu.ac.kr/">LARR</a>.' },
-    { date: "Feb. 2026", text: "Received the B.S. degree in Aerospace Engineering from Seoul National University." },
+    { date: "Mar. 2026", text: 'Started the integrated M.S./Ph.D. program in the Interdisciplinary Program in Artificial Intelligence at <a href="https://en.snu.ac.kr/">Seoul National University</a> and joined <a href="https://larr.snu.ac.kr/">LARR</a>.' },
+    { date: "Feb. 2026", text: 'Received the B.S. degree in Aerospace Engineering from <a href="https://en.snu.ac.kr/">Seoul National University</a>.' },
     { date: "Sep. 2025", text: 'Began an exchange semester at the <a href="https://www.washington.edu/">University of Washington</a>.' },
     { date: "Jul. 2025", text: 'Served as a lead IT instructor in Karakol, Kyrgyzstan, through the <a href="https://www.nia.or.kr/">NIA</a> global ICT volunteer program.' },
     { date: "Apr. 2025", text: 'Competed in the <a href="https://www.aiaa.org/dbf">AIAA Design/Build/Fly</a> competition in Tucson, Arizona.' },
@@ -64,7 +64,7 @@ window.SITE = {
   //  예시:
   //  {
   //    title: "Paper Title",
-  //    authors: [{ name: "G. Choe" }, "A. Author", { name: "H. J. Kim", url: "https://larr.snu.ac.kr/" }],
+  //    authors: [{ name: "G. Choe" }, "A. Author", { name: "H. J. Kim", url: "https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&hl=en" }],
   //    venue: "IEEE Robotics and Automation Letters (RA-L)", year: 2027,
   //    media: "img/paper1.png", featured: true,
   //    links: [{ label: "Paper", url: "https://arxiv.org/abs/..." }],
@@ -81,7 +81,7 @@ window.SITE = {
         { name: "F. Huang", url: "https://furong-huang.com/" },
         { name: "S. Scherer", url: "https://theairlab.org/team/sebastian/" },
         { name: "G. Shi", url: "https://www.gshi.me/" },
-        { name: "H. J. Kim", url: "https://larr.snu.ac.kr/" },
+        { name: "H. J. Kim", url: "https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&hl=en" },
         "S. Lee",
         { name: "D. Lee", url: "https://dongjaelee95.github.io/" },
       ],
@@ -135,11 +135,11 @@ window.SITE = {
   education: [
     {
       degree: "M.S. in Artificial Intelligence (Integrated M.S./Ph.D. Program)",
-      school: 'Interdisciplinary Program in Artificial Intelligence, Seoul National University',
+      school: 'Interdisciplinary Program in Artificial Intelligence, <a href="https://en.snu.ac.kr/">Seoul National University</a>',
       period: "Mar. 2026 – Present",
       logo: "img/logos/snu.png",
       details: [
-        'Advisor: <a href="https://larr.snu.ac.kr/">Prof. H. Jin Kim</a>, Lab for Autonomous Robotics Research (LARR)',
+        'Advisor: <a href="https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&amp;hl=en">Prof. H. Jin Kim</a>, Lab for Autonomous Robotics Research (LARR)',
       ],
     },
     {
@@ -150,7 +150,7 @@ window.SITE = {
     },
     {
       degree: "B.S. in Aerospace Engineering",
-      school: "Seoul National University",
+      school: '<a href="https://en.snu.ac.kr/">Seoul National University</a>',
       period: "Mar. 2020 – Feb. 2026",
       logo: "img/logos/snu.png",
       details: ["BullNaBi (Drone Research Club)"],
