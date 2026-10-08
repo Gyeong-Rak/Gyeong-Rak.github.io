@@ -13,13 +13,9 @@
         return '<svg class="link-icon" aria-hidden="true"><use href="#icon-' + name + '"></use></svg>';
     }
 
-    function externalAttrs(url) {
-        return /^https?:/.test(url) ? ' target="_blank" rel="noopener"' : '';
-    }
-
     function linkList(links) {
         return (links || []).map(function (l) {
-            return '<a href="' + escapeAttr(l.url) + '"' + externalAttrs(l.url) + '>' + l.label + '</a>';
+            return '<a href="' + escapeAttr(l.url) + '">' + l.label + '</a>';
         }).join(' &nbsp;|&nbsp; ');
     }
 
@@ -33,7 +29,7 @@
         return authors.map(function (a) {
             if (typeof a === 'string') a = { name: a };
             var text = isSelf(a.name) ? '<span class="self">' + a.name + '</span>' : a.name;
-            return a.url ? '<a href="' + escapeAttr(a.url) + '"' + externalAttrs(a.url) + '>' + text + '</a>' : text;
+            return a.url ? '<a href="' + escapeAttr(a.url) + '">' + text + '</a>' : text;
         }).join(', ');
     }
 
@@ -56,7 +52,7 @@
     $('photo').alt = 'Photo of ' + P.name;
     $('position').innerHTML = P.position.join('<br>');
     $('profile-links').innerHTML = P.links.map(function (l) {
-        return '<a href="' + escapeAttr(l.url) + '"' + externalAttrs(l.url) + '>' + icon(l.icon) + l.label + '</a>';
+        return '<a href="' + escapeAttr(l.url) + '">' + icon(l.icon) + l.label + '</a>';
     }).join('');
 
     $('bio').innerHTML = S.bio.map(function (p) { return '<p>' + p + '</p>'; }).join('');
@@ -185,6 +181,14 @@
         window.addEventListener('resize', clampAll);
         if (document.fonts) document.fonts.ready.then(clampAll);
     }
+
+    // 모든 링크를 새 탭에서 열기 (이메일 링크와 페이지 내부 #링크는 제외)
+    document.querySelectorAll('a[href]').forEach(function (a) {
+        var href = a.getAttribute('href');
+        if (/^(mailto:|#)/.test(href)) return;
+        a.target = '_blank';
+        a.rel = 'noopener';
+    });
 
     $('last-updated').textContent = S.lastUpdated || document.lastModified.split(' ')[0];
 
