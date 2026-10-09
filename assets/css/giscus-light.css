@@ -1,10 +1,12 @@
-/* giscus 위젯(하트 팝업)용 테마: 기본 light 테마 + 하트 반응만 남기기 */
+/* giscus 위젯(반응 팝업)용 테마: 기본 light 테마 + 긍정적인 반응만 남기기 */
 @import url("https://giscus.app/themes/light.css");
 
 /* 댓글, 반응 개수 문구 숨김 */
 .gsc-comments,
 .gsc-reactions-count { display: none !important; }
 
-/* 이모지 선택 창과 기존 반응 버튼에서 하트(Love)만 남김 */
-.gsc-emoji-button:not([aria-label$="Love reaction"]) { display: none !important; }
-.gsc-direct-reaction-button:not(:has(.gsc-social-reaction-summary-item-count[title*="Love"])) { display: none !important; }
+/* 👎(-1), 😕(Confused)는 숨김 → ❤️ 😄 👍 🎉 🚀 👀 만 표시 */
+.gsc-emoji-button[aria-label$="-1 reaction"],
+.gsc-emoji-button[aria-label$="Confused reaction"],
+.gsc-direct-reaction-button:has(.gsc-social-reaction-summary-item-count[title*="with -1 "]),
+.gsc-direct-reaction-button:has(.gsc-social-reaction-summary-item-count[title*="with Confused "]) { display: none !important; }
