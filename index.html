@@ -66,14 +66,14 @@
         </svg>
     </button>
 
-    <!-- 반응 버튼: 개수(반응 합계)는 giscus가 보내주는 정보로 표시, 누르면 giscus 팝업에서 반응을 누름 -->
+    <!-- 반응 버튼: 아래에 이모지별 개수 표시(giscus가 보내주는 정보), 누르면 giscus 팝업에서 반응을 누름 -->
     <div class="heart" id="heart">
-        <span class="heart-count" id="heart-count" aria-live="polite"></span>
         <button type="button" class="heart-button" id="heart-button" aria-label="Leave a reaction" title="Leave a reaction" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
         </button>
+        <ul class="reaction-list" id="reaction-list" aria-label="Reactions" aria-live="polite"></ul>
         <div class="heart-panel" id="heart-panel" role="dialog" aria-label="Leave a reaction">
             <p class="heart-panel-note">Leave a reaction with your GitHub account</p>
             <div class="giscus"></div>

@@ -281,16 +281,27 @@ section.block h2 {
     right: 14px;
     z-index: 5;
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 6px;
 }
 
-.heart-count {
-    font-size: 0.85em;
+/* 하트 버튼 아래 이모지별 개수 */
+.reaction-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.8em;
     color: var(--text-muted);
-    min-width: 1ch;
-    text-align: right;
 }
+
+.reaction-list li { display: flex; align-items: center; gap: 3px; white-space: nowrap; }
+.reaction-list .emoji { font-size: 1.05em; }
+.reaction-list li.mine { color: var(--text); font-weight: 700; }
 
 .heart-button {
     width: 38px;

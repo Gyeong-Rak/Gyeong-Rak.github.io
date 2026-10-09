@@ -250,22 +250,22 @@
     document.body.appendChild(gs);
     if (returningFromLogin) setHeartOpen(true);
 
-    // giscus가 보내는 정보에서 반응 개수 합계와 내가 눌렀는지를 읽음 (글이 아직 없으면 정보가 오지 않음 → 0)
-    // 팝업에 보이는 반응만 셈 (👎, 😕는 giscus-*.css에서 숨김)
-    var SHOWN_REACTIONS = ['HEART', 'LAUGH', 'THUMBS_UP', 'HOORAY', 'ROCKET', 'EYES'];
-    $('heart-count').textContent = '0';
+    // giscus가 보내는 정보로 하트 버튼 아래에 이모지별 개수를 표시 (1개 이상인 것만, 글이 아직 없으면 정보가 오지 않음)
+    // 팝업에 보이는 반응만 표시 (👎, 😕는 giscus-*.css에서 숨김)
+    var SHOWN_REACTIONS = { HEART: '❤️', LAUGH: '😄', THUMBS_UP: '👍', HOORAY: '🎉', ROCKET: '🚀', EYES: '👀' };
     window.addEventListener('message', function (e) {
         if (e.origin !== GISCUS || !e.data || !e.data.giscus) return;
         var d = e.data.giscus.discussion;
         if (!d || !d.reactions) return;
-        var total = 0, reacted = false;
-        SHOWN_REACTIONS.forEach(function (k) {
+        var items = '', reacted = false;
+        Object.keys(SHOWN_REACTIONS).forEach(function (k) {
             var r = d.reactions[k];
-            if (!r) return;
-            total += r.count;
+            if (!r || !r.count) return;
+            items += '<li' + (r.viewerHasReacted ? ' class="mine"' : '') + '>' +
+                '<span class="emoji">' + SHOWN_REACTIONS[k] + '</span>' + r.count + '</li>';
             reacted = reacted || r.viewerHasReacted;
         });
-        $('heart-count').textContent = total;
+        $('reaction-list').innerHTML = items;
         heart.classList.toggle('reacted', reacted);
     });
 
