@@ -24,6 +24,7 @@ window.SITE = {
       { icon: "lab",      label: "Lab",      url: "https://larr.snu.ac.kr/" },
       { icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/gyeongrak-choe-816851371/" },
       { icon: "github",   label: "GitHub",   url: "https://github.com/Gyeong-Rak" },
+      { icon: "x",        label: "X",        url: "https://x.com/GyeongrakChoe" },
       // { icon: "cv",      label: "Curriculum Vitae", url: "files/cv.pdf" },
       // { icon: "scholar", label: "Google Scholar",   url: "https://scholar.google.com/..." },
     ],
