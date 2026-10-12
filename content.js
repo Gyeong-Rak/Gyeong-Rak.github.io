@@ -19,9 +19,9 @@ window.SITE = {
       '<a href="https://larr.snu.ac.kr/">Lab for Autonomous Robotics Research (LARR)</a>',
       'Contact: <a href="mailto:rudfkr5978@snu.ac.kr">rudfkr5978@snu.ac.kr</a>',
     ],
-    // icon: email | cv | lab | scholar | github | linkedin | x | youtube
+    // icon: email | cv | cap | lab | scholar | github | linkedin | x | youtube
     links: [
-      { icon: "lab",      label: "Lab",      url: "https://larr.snu.ac.kr/" },
+      { icon: "cap",      label: "Lab (LARR)", url: "https://larr.snu.ac.kr/" },
       { icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/gyeongrak-choe-816851371/" },
       { icon: "github",   label: "GitHub",   url: "https://github.com/Gyeong-Rak" },
       { icon: "x",        label: "X",        url: "https://x.com/GyeongrakChoe" },

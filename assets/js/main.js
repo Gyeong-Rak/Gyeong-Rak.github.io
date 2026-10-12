@@ -52,7 +52,8 @@
     $('photo').alt = 'Photo of ' + P.name;
     $('position').innerHTML = P.position.join('<br>');
     $('profile-links').innerHTML = P.links.map(function (l) {
-        return '<a href="' + escapeAttr(l.url) + '">' + icon(l.icon) + l.label + '</a>';
+        // 아이콘만 표시. 이름은 마우스를 올리면 보이는 툴팁과 화면낭독기용 라벨로
+        return '<a href="' + escapeAttr(l.url) + '" title="' + escapeAttr(l.label) + '" aria-label="' + escapeAttr(l.label) + '">' + icon(l.icon) + '</a>';
     }).join('');
 
     $('bio').innerHTML = S.bio.map(function (p) { return '<p>' + p + '</p>'; }).join('');
