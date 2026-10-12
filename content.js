@@ -35,7 +35,7 @@ window.SITE = {
   bio: [
     'I am an M.S. student in the integrated M.S./Ph.D. program of the Interdisciplinary Program in Artificial Intelligence at <a href="https://en.snu.ac.kr/">Seoul National University</a>, where I work in the <a href="https://larr.snu.ac.kr/">Lab for Autonomous Robotics Research (LARR)</a> under the supervision of Prof. <a href="https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&amp;hl=en">H. Jin Kim</a>. I received the B.S. degree in Aerospace Engineering from Seoul National University in 2026, and spent Autumn 2025 as an exchange student at the <a href="https://www.washington.edu/">University of Washington</a>.',
     "Before graduate school, I served in the Republic of Korea Army as a CH-47D Chinook crew member, logging over 100 flight hours. As an undergraduate, I was a member of BullNaBi, the drone research club at SNU, and competed in the AIAA Design/Build/Fly competition.",
-    "My research interests lie in <b>reinforcement learning</b> and <b>computer vision</b> for robotics, with a particular interest in <b>humanoid robots</b>.",
+    "My research aims to turn the world into something robots can understand and interact with, and to turn robots into something that can change it. In particular, I am interested in <b>Real2Sim</b>, <b>humanoid retargeting</b>, and <b>(unsupervised) reinforcement learning</b>.",
   ],
 
   // ---------------------------------------------------------------
@@ -91,6 +91,7 @@ window.SITE = {
       poster: "img/flybycode_poster.jpg",
       featured: true,
       links: [
+        { label: "Paper", url: "https://arxiv.org/abs/2610.12549" },
         { label: "Website", url: "https://fly-by-code.github.io/" },
         { label: "Video", url: "video/real_cabinet_film_v12_labels_20261008.mp4" },
       ],
